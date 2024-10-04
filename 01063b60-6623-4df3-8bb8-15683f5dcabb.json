@@ -1,0 +1,234 @@
+{
+	"id": "01063b60-6623-4df3-8bb8-15683f5dcabb",
+	"name": "MotorTrend PVC",
+	"businessModel": "DTC Parity",
+	"rightClearanceGroups": ["SVOD 1", "SVOD 7"],
+	"icon": "icons/motortrend_pvc.svg",
+	"planningDefault": true,
+    "distributionId": "$(nlvId)",
+	"destinationService": "offramp",
+	"preferredDisplayIdentifier": "showCode",
+    "configureTimeComponent": true,
+    "brandPromosEnabledForShortForm": false,
+ "availsType": "not-applicable",
+	"availsEnabled": false,
+	"allowSdIntermediateLongform": true,
+	"allowSdIntermediateShortform": true,
+	"preferredLanguages": [
+		"en-US"
+	],
+	"aspectRatios":{
+    "episode": [
+        {
+            "id": "16x9",
+            "max": 5,
+            "min": 1,
+            "required": true
+        }
+    ],
+    "show": [
+        {
+            "id": "16x9",
+            "required": true,
+            "texted": true
+        },
+        {
+            "id": "2x3",
+            "required": true,
+            "texted": true
+        },
+        {
+            "id": "poster",
+            "required": true
+        }
+    ]
+},
+	"markets": [{
+		"id":"f2cc2cf3-21da-465e-ab2c-e68c3dd9b72b",
+		"name": "US",
+		"zoneId": "America/New_York",
+		"currency": "USD",
+		"languages": ["en-US"],
+		"distributionChannelGroupId": 1,
+		"countryCodes": [
+			"US"
+		],
+		"marketGroupMember": {
+			"name": "US"
+		},
+		"distributionId": "$(showCode)",
+		"captions": [
+			{
+				"languages": ["en","en-US"],
+				"formats": [
+					{"instance_type": "caption", "file_extension":"srt"},
+					{"instance_type": "caption", "file_extension":"scc"}
+				],
+				"required": true
+			}
+		]
+	}],
+	"alternateInventoryRequired": false,
+ 	"actionTagGroups": ["price-scheme-default", "allow-download"],
+	"launchdate_offset_nd": 0,
+	"customFirstStitchComponentEnabled": false,
+	"uhdQualityCategory": "source-fr",
+	"duedate_offset_lib": 14,
+	"duedate_offset_nd": 2,
+	"duedate_offsets": {
+        "artifacts": {
+            "comment": "Images, DVs and maybe MD due date. Used by nlcd-prep and TRS",
+            "lib": 4,
+            "nd": 2
+        },
+		"delivery": {
+			"comment": "Based on launch date. Used by DRS.",
+			"lib": 3,
+			"nd": 3
+		},
+		"qc": {
+			"comment": "Based on partner due date. Used by QC Application",
+			"default": 2
+		}
+	},
+	"planningTranscoder": "trs",
+	"trs_priority_override": 65,
+	"distribution_values":[
+		
+	],
+	"trs_enabled": true,
+	"transcodeNeeded": "yes",
+    "allowed_transcode_formats": [
+        "HD",
+        "SD",
+        "SD LB",
+        "UHD",
+        "UHD HDR",
+        "UHD SDR"
+    ],
+	"multiLanguageCaptionsEnabled" : true,
+	"transporter": "NLCD_MotorTrend_PVC_TRS",
+	"brandPromosEnabled": false,
+	"webtoss_allowed": true,
+	"webtossAllowedForShortform": true,
+	"hold_transcode": true,
+	"selectiveTranscoding": false,
+	"hold_transcode_hours": 1,
+	"qualityCategory": "source-fr",
+	"shortFormQualityCategory": "source-fr",
+	"prefered_frame_rate_episode": [
+		"source-fr"
+	],
+	"nfr": [
+		"source-fr"
+	],
+	"gates": {
+		"default": [
+			"broadcast_qc",
+			"ingest",
+			"timing",
+			"transcode",
+			"cc"
+		],
+		"non-linear-video": [
+			"ingest",
+			"timing",
+			"transcode",
+			"cc"
+		]
+	},
+	"transcodeSelectors": [
+		"25i",
+		"25p",
+		"24p",
+		"30i",
+		"30p"
+	],
+	"transcode_workflow_default_selectors": [
+		"30i",
+		"24p",
+		"25",
+		"25p",
+		"25i",
+		"30p"
+	],
+	"qc_offset": 1,
+	"drs_enabled": true,
+	"delivery_transporter": "NLCD_MotorTrend_PVC",
+	"delivery_metadata": {
+		"comment": "Effective list after required minus exempt will be considered as required.",
+		"required": [
+			"nonLinearId",
+			"propEp"
+		],
+		"optional": [
+
+		],
+		"exempt_episode": [
+
+		],
+		"exempt_nlv": [
+
+		]
+	},
+	"delivery_transporter_details": {
+		"file_name_requirements": {
+			"append_redelivery_timestamp": "yyyyMMddHHmmss",
+			"template": {
+				"video": "$(propEp)",
+				"cc": "$(propEp)"
+			},
+			"remove_these_characters": "`~!@#$%^&*()+=\\|{}[]\"'’;:/?<>,-.",
+			"replace_these_characters": {
+				".": "_",
+				" ": "_",
+				"-": "_"
+		  }
+		},
+		"requirement_details": [{
+			"assetTypes": [
+				"episode",
+				"special",
+				"pilot",
+				"non-linear-video"
+			],
+			"destination": "staged",
+			"requirements": [
+				"transcoding",
+				"closedcaption",
+				"delivery-metadata"
+			]
+		}]
+	},
+	"redelivery_include": [
+		{
+			"name": "All",
+			"value": "full"
+		},
+		{
+			"name": "Metadata",
+			"value": "meta"
+		}
+	],
+	"trsccoverride": "srt",
+	"offRampAllowedAssetTypes": [
+		"episode",
+		"special",
+		"pilot",
+		"non-linear-video"
+	],
+	"offRampAllowedInstanceTypes": [
+		"video"
+	],
+	"supplyChainConfiguration": {
+		"isTranscodeGeneric": true,
+		"isDeliveryGeneric": true
+	},
+    "preferredVideoLanguage": "en-US",
+    "brands": [
+		{
+			"abbreviation":"MotorTrend"
+		}
+    ],
+	"autoConfirmOnArtifactDownload": true
+}

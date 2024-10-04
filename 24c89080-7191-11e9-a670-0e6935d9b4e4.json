@@ -1,0 +1,220 @@
+{  
+   "id":"24c89080-7191-11e9-a670-0e6935d9b4e4",
+   "name":"Fiji Air",
+   "businessModel":"Inactive",
+   "rightClearanceGroups": ["Private Networks 1"],
+   "icon":"icons/fijiair.svg",
+   "availsType": "not-applicable",
+   "availsEnabled":false,
+   "planningDefault":false,
+   "wfEnabled":false,
+   "order":42,
+   "planningTranscoder":"trs",
+  "allowed_transcode_formats":["HD", "SD"],
+   "preferredLanguages":["en-US"],
+  "preferredVideoLanguage": null,
+  "alternateInventorySources": ["MUK"],
+  "styleSubstyleMap": {},
+  "actionTagGroups": ["price-scheme"],
+  "launchdate_offset_nd": 1,
+  "preferredDisplayIdentifier":"showCode",
+   "selectiveTranscoding":false,
+   "transcodeNeeded":"yes",
+   "ratios":[  
+
+   ],
+   "distribution_values":[  
+
+   ],
+   "activation_days":21,
+   "duedate_offset_lib":14,
+   "duedate_offset_nd":2,
+   "duedate_offsets":{  
+      "artifacts":{  
+         "comment":"Images, DVs and maybe MD due date. Used by nlcd-prep and TRS",
+         "lib":7,
+         "nd":2
+      },
+      "delivery":{  
+         "comment":"Based on launch date. Used by DRS.",
+         "lib":14,
+         "nd":2
+      }
+   },
+   "trs_enabled":true,
+   "webtoss_allowed":true,
+   "transporter":"NLCD_EMIRATES_TRS",
+   "transcode_workflow":"SN-API-EMIRATES",
+   "qc_offset":1,
+   "qualityCategory":"native",
+   "shortFormQualityCategory": "native",
+   "related":[  
+      "9f17ac13-9748-4133-81f8-c1d06614962a",
+      "d65190ef-3dc4-4537-850c-77e3d19ee07c",
+      "883e4f4a-b157-4eb0-8c05-2d4740ae8c77",
+      "eee87846-cb4d-4cbc-9eee-7bcac8bc2cd6",
+      "80cd8c48-b394-491d-993b-91eccc3ff1e4",
+      "0541ac01-e6b0-4f6f-bb7a-18ca7b8944b0",
+      "b8a802ae-c32d-4c71-a56a-fb20de5dedaf",
+      "76a480dc-7103-4b37-92f4-c97557b357d8",
+      "2fbed13e-7191-11e9-a671-0e6935d9b4e4",
+      "b46dcfe2-647d-458d-8088-74454b00f684"
+   ],
+   "transcodeSelectors":[  
+      "30i",
+      "30p"
+   ],
+   "gates":{  
+      "default":[  
+         "ingest",
+         "timing",
+         "transcode",
+         "broadcast_qc"
+      ],
+      "non-linear-video":[  
+         "ingest",
+         "timing",
+         "transcode"
+      ]
+   },
+   "drs_enabled":true,
+   "delivery_transporter":"NLCD_FIJI_AIR",
+   "delivery_transporter_details":{  
+      "file_name_requirements":{  
+         "template":{  
+            "video":"FJ_$(psa.orig.source.showTitle)_$(source.episodeNumber)_$(title19)_$(psa.orig.providerAssetId)"
+         }
+      },
+      "requirement_details":[  
+         {  
+            "destination":"staged",
+            "assetTypes":[  
+               "episode",
+               "special",
+               "pilot",
+               "non-linear-video"
+            ],
+            "requirements":[  
+               "transcoding",
+               "delivery-metadata"
+            ]
+         }
+      ]
+   },
+   "delivery_metadata":{  
+      "comment":"Effective list after required minus exempt will be considered as required.",
+      "exempt_episode":[  
+
+      ],
+      "exempt_nlv":[  
+
+      ],
+      "required":[  
+         "format",
+         "nonLinearId",
+         "showTitle",
+         "title19"
+      ],
+      "optional":[  
+         "episodeNumber"
+      ]
+   },
+   "redelivery_include":[  
+      {  
+         "name":"All",
+         "value":"full"
+      }
+   ],
+   "brands":[  
+      {  
+         "abbreviation":"COOK"
+      },
+      {  
+         "abbreviation":"FOOD"
+      },
+      {  
+         "abbreviation":"HGTV"
+      },
+      {  
+         "abbreviation":"DIY"
+      },
+      {  
+         "abbreviation":"GAC"
+      },
+      {  
+         "abbreviation":"TRAV"
+      },
+      {  
+         "abbreviation":"TLCme"
+      },
+      {  
+         "abbreviation":"CRFE"
+      },
+      {  
+         "abbreviation":"DSC-US"
+      },
+      {  
+         "abbreviation":"MOTORTREND-US"
+      },
+      {  
+         "abbreviation":"AHC"
+      },
+      {  
+         "abbreviation":"AFC"
+      },
+      {  
+         "abbreviation":"DAM-US"
+      },
+      {  
+         "abbreviation":"TURBO-US"
+      },
+      {  
+         "abbreviation":"SCI-US"
+      },
+      {  
+         "abbreviation":"DLF-US"
+      },
+      {  
+         "abbreviation":"TLC-NA"
+      },
+      {  
+         "abbreviation":"DES-US"
+      },
+      {  
+         "abbreviation":"ID-US"
+      },
+      {  
+         "abbreviation":"DSC-FAM"
+      },
+      {  
+         "abbreviation":"OWN"
+      },
+      {  
+         "abbreviation":"KID-US"
+      },
+      {  
+         "abbreviation":"APL-US"
+      },
+      {  
+         "abbreviation":"DFC"
+      }
+   ],
+   "markets": [
+      {
+         "id":"ae3e4052-88d7-4271-b628-4ad242cc993f",
+         "name": "US",
+         "zoneId": "America/New_York",
+         "currency": "USD",
+         "languages":["en-US"],
+         "distributionChannelGroupId": 1,
+         "marketGroupMember": {
+            "name": "US"
+         },
+         "distributionId": "$(nlvId)"
+      }
+   ],
+    "supplyChainConfiguration": {
+        "isTranscodeGeneric": true,
+        "isDeliveryGeneric": true
+    }
+}

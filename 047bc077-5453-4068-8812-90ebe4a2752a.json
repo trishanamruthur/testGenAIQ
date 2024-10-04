@@ -1,0 +1,415 @@
+{
+  "id": "047bc077-5453-4068-8812-90ebe4a2752a",
+  "name": "DirecTV",
+  "businessModel": "VOD",
+  "rightClearanceGroups": ["VOD 4", "VOD 6"],
+  "icon": "icons/directv.svg",
+  "distributionId": "$(nlvId)",
+  "planningTranscoder": "trs",
+  "configureTimeComponent": true,
+  "transcodeNeeded": "yes",
+  "allowed_transcode_formats": [
+    "HD",
+    "SD",
+    "UHD",
+    "UHD SDR"
+  ],
+  "preferredLanguages":["en-US"],
+  "alternateInventorySources": ["MUK"],
+  "styleSubstyleMap": {},
+  "actionTagGroups": ["auth"],
+  "launchdate_offset_nd": 0,
+  "preferredDisplayIdentifier": "showCode",
+  "enableCFPSCreation": true,
+  "customFirstStitchComponentEnabled":true,
+  "availsType": "not-applicable",
+  "availsEnabled": false,
+  "allowSdIntermediateLongform": true,
+  "allowSdIntermediateShortform": true,
+  "planningDefault": false,
+  "order": 13,
+  "multiLanguageCaptionsEnabled": true,
+  "prefered_frame_rate_episode": [
+    "source-fr"
+  ],
+  "activation_days": 45,
+  "duedate_offset_lib": 23,
+  "duedate_offset_nd": 23,
+  "duedate_offsets": {
+    "artifacts": {
+      "comment": "Images, DVs and maybe MD due date. Used by nlcd-prep and TRS",
+      "lib": 2,
+      "nd": 2
+    },
+    "delivery": {
+      "comment": "Based on launch date. Used by DRS.",
+      "lib": 5,
+      "nd": 5
+    }
+  },
+  "aspectRatios": {
+    "episode": [{
+      "id": "16x9",
+      "required": true
+    }],
+    "show": [{
+        "id": "16x9",
+        "required": true,
+        "texted": true
+      },
+      {
+        "id": "default_show_art",
+        "required": true
+      },
+      {
+        "id": "poster_with_logo",
+        "required": true,
+        "texted": true
+      }]
+    },
+  "distribution_values": [
+    {
+      "dv_id": "video_type_non_shared",
+      "isMandatory": true,
+      "order": 1,
+      "section_id": "ast_dv_default"
+    },
+    {
+      "dv_id": "parental_rating_shared",
+      "isMandatory":true,
+      "order": 2,
+      "default":[
+      ],
+      "section_id": "ast_dv_default"
+    },
+    {
+      "dv_id": "brand_open",
+      "isMandatory": true,
+      "order": 3,
+      "section_id": "pl_detail_def"
+    },
+    {
+      "dv_id": "temporary_availability",
+      "isMandatory": true,
+      "order": 4,
+      "default": [
+        "Available"
+      ],
+      "permissibles": [
+        {
+          "id": "temporary_availability",
+          "values": [
+            "Available",
+            "Unavailable"
+          ]
+        }
+      ],
+      "tags": [
+        {
+          "name": "start",
+          "value": "<partner_launch_date>"
+        },
+        {
+          "name": "end",
+          "value": "<partner_expiry_date>"
+        }
+      ],
+      "section_id": "ast_dv_default"
+    }
+  ],
+  "trs_enabled":true,
+  "webtoss_allowed":true,
+  "webtossAllowedForShortform":true,
+  "transporter":"NLCD_DIRECTTV_TRS",
+  "qualityCategory":"source-fr",
+  "shortFormQualityCategory": "source-fr",
+  "uhdQualityCategory": "source-fr",
+  "nfr": [
+    "source-fr"
+  ],
+  "transcodeSelectors": [
+    "25i",
+    "25p",
+    "24p",
+    "30i",
+    "30p",
+    "60p"
+  ],
+  "gates": {
+    "default": [
+      "ingest",
+      "timing",
+      "broadcast_qc",
+      "audio",
+      "cc",
+      "transcode"
+    ],
+    "non-linear-video": [
+      "ingest",
+      "timing",
+      "audio",
+      "cc",
+      "transcode"
+    ]
+  },
+  "related": [],
+  "brandPromosEnabled": false,
+  "drs_enabled": true,
+  "includePositionSummary": true,
+  "delivery_transporter": "NLCD_DIRECTV_CABLELABS",
+  "delivery_metadata": {
+    "comment": "Effective list after required minus exempt will be considered as required.",
+    "exempt_episode": [],
+    "exempt_nlv": [],
+    "required": [
+      "format",
+      "nonLinearId",
+      "title30",
+      "Episode Number",
+      "seasonNumber",
+      "createDate",
+      "title19",
+      "propEp",
+      "showTitle",
+      "keywords",
+      "seriesId",
+      "dLaunchDate",
+      "expirationDate",
+      "assetLevelShortDescription",
+      "taxonomyPath",
+      "containerPositionEpisode",
+      "TMS ID"
+    ],
+    "optional": [
+      "showDistributionTitleInEnUS",
+      "showCode",
+      "assetLevelLongDescription",
+      "seasonLevelLongDescription",
+      "seasonLevelShortDescription",
+      "showLevelLongDescription",
+      "showLevelShortDescription",
+      "seasonTitle",
+      "showDescription4000",
+      "subtitle",
+      "genre",
+      "thunderGenres",
+      "taxonomy",
+      "actors",
+      "directors",
+      "taxonomyPath",
+      "marketLaunchDateDirecTv",
+      "marketExpirationDateDirecTv",
+      "direcTvSeriesId",
+      "direcTvSeasonId",
+      "showType",
+      "copyright",
+      "totalRunTime",
+      "marketCountryCodes",
+      "assetCustomTitle",
+      "actors",
+      "voiceActors",
+      "showHosts",
+      "judges",
+      "guests",
+      "competitors",
+      "asThemselves",
+      "writers",
+      "directors",
+      "producers",
+      "associateProducers",
+      "executiveProducers",
+      "coreFirstAirDate"
+    ]
+  },
+  "delivery_transporter_details": {
+    "file_name_requirements": {
+      "template": {
+        "image": "DiscoveryPlus_$(psa.orig.source.showTitle)_S$(Season Number)_E$(Container Position Episode)_$(psa.orig.providerAssetId)",
+        "metadata": "DiscoveryPlus_$(psa.orig.source.showTitle)_S$(Season Number)_E$(Container Position Episode)",
+        "video": "DiscoveryPlus_$(psa.orig.source.showTitle)_S$(Season Number)_E$(Container Position Episode)"
+      },
+      "remove_these_characters": "%,`~!@#$%^&*()+=\\|{}[]\"'’;:/?<>",
+      "replace_these_characters": {
+        ".": "_",
+        " ": "_",
+        "-": "_"
+      }
+    },
+    "requirement_details": [
+        {
+            "destination": "staged",
+            "assetTypes": [
+                "episode",
+                "special",
+                "pilot",
+                "non-linear-video"
+            ],
+            "requirements": [
+                "dv-state",
+                "image-state",
+                "transcoding",
+                "delivery-metadata"
+            ]
+          }
+      ]
+  },
+  "redelivery_include": [
+    {
+      "name": "All",
+      "value": "full"
+    }
+  ],
+  "destinationService": "offramp",
+  "supplyChainConfiguration": {
+    "isTranscodeGeneric": true,
+    "isDeliveryGeneric": true
+  },
+  "offRampAllowedAssetTypes": [
+    "episode",
+    "special",
+    "pilot",
+    "non-linear-video"
+  ],
+  "offRampAllowedInstanceTypes": [
+    "video"
+  ],
+  "brands": [
+    {
+      "abbreviation": "COOK"
+    },
+    {
+      "abbreviation": "FOOD"
+    },
+    {
+      "abbreviation": "HGTV"
+    },
+    {
+      "abbreviation": "TRAV"
+    },
+    {
+      "abbreviation": "DSC"
+    },
+    {
+      "abbreviation": "MotorTrend"
+    },
+    {
+      "abbreviation": "AHC"
+    },
+    {
+      "abbreviation": "DAM"
+    },
+    {
+      "abbreviation": "SCI"
+    },
+    {
+      "abbreviation": "DLF"
+    },
+    {
+      "abbreviation": "TLC"
+    },
+    {
+      "abbreviation": "ID"
+    },
+    {
+      "abbreviation": "OWN"
+    },
+    {
+      "abbreviation": "APL"
+    },
+    {
+      "abbreviation": "BBC"
+    },
+    {
+      "abbreviation":"Discovery+ Originals"
+    },
+    {
+     "abbreviation": "UNB"
+    },
+    {
+    "abbreviation": "AEAE"
+    },
+    {
+     "abbreviation": "AEHI"
+    },
+    {
+    "abbreviation": "AELF"
+    },
+    {
+     "abbreviation": "GNTH"
+    },
+    {
+     "abbreviation": "The-Dodo"
+    },
+    {
+     "abbreviation": "GNPS"
+    },
+    {
+     "abbreviation": "Seeker"
+    },
+    {
+     "abbreviation": "GNNT"
+    },
+    {
+      "abbreviation": "AEFYI"
+    },
+    {
+      "abbreviation": "Magnolia"
+    },
+    {
+      "abbreviation": "CNN"
+    }
+  ],
+  "markets": [
+    {
+      "id": "26d150ee-8f8a-4aba-813c-7b8e121fc3b4",
+      "name": "US",
+      "zoneId": "America/New_York",
+      "currency": "USD",
+      "languages": ["en-US"],
+      "countryCodes": ["US"],
+      "distributionId": "$(nlvId)",
+      "caption-override-allowed": true,
+      "audio-override-allowed": true,
+      "audio": {
+        "embed": {
+          "include": "ONE",
+          "languages": [
+            "en",
+            "en-US"
+          ]
+        },
+        "audio-languages": [
+          {
+            "languages": [
+              "en",
+              "en-US"
+            ],
+            "required": true
+          }
+        ]
+      },
+      "captions": [
+        {
+          "audio-languages": [
+            "en",
+            "en-US"
+          ],
+          "formats": [
+            {
+              "instance_type": "caption",
+              "file_extension": "scc",
+              "languages": [
+                "en",
+                "en-US"
+              ]
+            }
+          ],
+          "required": true
+        }
+      ],
+      "distributionChannelGroupId": 1,
+      "marketGroupMember": {
+        "name": "US"
+      }
+    }]
+  }
